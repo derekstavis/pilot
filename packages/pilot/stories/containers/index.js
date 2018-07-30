@@ -53,15 +53,19 @@ import {
   AnticipationResultWithoutAutomaticTransfer,
 } from './Anticipation/Result'
 import Anticipation from './Anticipation'
+import ConfigurationStep from './AddRecipient/ConfigurationsStep'
 
 storiesOf('Containers', module)
+  .add('Recipient Configuration Step', () => (
+    <ConfigurationStep />
+  ))
   .add('Anticipation Form', () => (
     <AnticipationForm />
   ))
   .add('Add Account', () => (
     <AddAccount />
   ))
-  .add('Bank Account Step', () => (
+  .add('Recipient Bank Account Step', () => (
     <BankAccountStep />
   ))
   .add('Recipient list', () => (

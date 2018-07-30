@@ -1,0 +1,24 @@
+@import "former-kit-skin-pagarme/dist/styles/spacing.css";
+@import "former-kit-skin-pagarme/dist/styles/colors.css";
+@import "former-kit-skin-pagarme/dist/styles/typography.css";
+
+.title {
+  color: var(--color-light-grey-100);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: var(--title-font-weight);
+  margin-bottom: var(--spacing-tiny);
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: var(--color-light-grey-100);
+  font-size: 14px;
+  font-weight: var(--title-font-style);
+  margin-top: 0;
+}
+
+.label {
+  font-size: 12px;
+}
