@@ -14,6 +14,8 @@ import {
   pathOr,
 } from 'ramda'
 import { translate } from 'react-i18next'
+import { Alert } from 'former-kit'
+import IconError from 'emblematic-icons/svg/ClearClose32.svg'
 import WithdrawContainer from '../../containers/Withdraw'
 import partnersBankCodes from '../../models/partnersBanksCodes'
 import env from '../../environment'
@@ -131,6 +133,7 @@ class Withdraw extends Component {
       ...defaultStepsState,
       confirmationDisabledButtons: false,
       confirmationPasswordError: '',
+      error: '',
       requested: '0',
     }
 
@@ -151,6 +154,7 @@ class Withdraw extends Component {
           id,
         },
       },
+      t,
     } = this.props
 
     let recipientPromise
@@ -164,11 +168,20 @@ class Withdraw extends Component {
     recipientPromise
       .then((recipient) => {
         this.setState({
+          error: '',
           recipient,
         })
 
         if (!id) {
           history.replace(`/withdraw/${recipient.id}`)
+        }
+      })
+      .catch(({ response }) => {
+        const { type } = response.errors[0]
+        if (type === 'not_found') {
+          this.setState({
+            error: t('pages.withdraw.no_recipient'),
+          })
         }
       })
   }
@@ -290,6 +303,7 @@ class Withdraw extends Component {
       confirmationDisabledButtons,
       confirmationPasswordError,
       currentStep,
+      error,
       recipient,
       requested,
       statusMessage,
@@ -328,6 +342,14 @@ class Withdraw extends Component {
             transferCost={transferCost}
           />
         }
+        {error &&
+          <Alert
+            icon={<IconError height={16} width={16} />}
+            type="error"
+          >
+            <span>{error}</span>
+          </Alert>
+        }
       </Fragment>
     )
   }
@@ -350,9 +372,13 @@ Withdraw.propTypes = {
       credito_em_conta: PropTypes.number,
       ted: PropTypes.number,
     }),
-  }).isRequired,
+  }),
   onWithdrawReceive: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+Withdraw.defaultProps = {
+  pricing: {},
 }
 
 export default enhanced(Withdraw)

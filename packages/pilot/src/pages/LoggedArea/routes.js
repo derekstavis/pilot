@@ -47,13 +47,9 @@ export default {
   withdrawRoot: {
     component: Withdraw,
     icon: Withdraw32,
-    path: '/withdraw',
+    path: '/withdraw/:id?',
     title: 'pages.withdraw.title',
     hidden: true,
-  },
-  withdraw: {
-    hidden: true,
-    path: '/withdraw/:id?',
   },
   accountSettings: {
     title: 'pages.settings.user.menu',
