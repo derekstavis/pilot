@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import DataDisplay from '../DataDisplay'
-import decimalCurrency from '../../formatters/decimalCurrency'
+import currency from '../../formatters/currency'
 import style from './style.css'
 
 const renderSymbol = (value) => {
@@ -18,7 +18,7 @@ const renderSymbol = (value) => {
 }
 
 const renderValue = (amount, color) => {
-  const formattedValue = decimalCurrency(Math.abs(amount))
+  const formattedValue = currency(Math.abs(amount))
 
   return (
     <div className={style.amount}>
@@ -34,10 +34,9 @@ const renderValue = (amount, color) => {
   )
 }
 
-const renderTitle = (color, unit, title) => (
+const renderTitle = (color, title) => (
   <Fragment>
     <h2 style={{ color }}>{title}</h2>
-    <span>({unit})</span>
   </Fragment>
 )
 
@@ -47,10 +46,9 @@ const TotalDisplay = ({
   color,
   subtitle,
   title,
-  unit,
 }) => (
   <DataDisplay
-    title={renderTitle(color, unit, title)}
+    title={renderTitle(color, title)}
     color={color}
     subtitle={subtitle}
     align={align}
@@ -68,14 +66,12 @@ TotalDisplay.propTypes = {
   title: PropTypes.node.isRequired,
   amount: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
-  unit: PropTypes.string,
   subtitle: PropTypes.node,
 }
 
 TotalDisplay.defaultProps = {
   align: 'center',
   subtitle: null,
-  unit: '',
 }
 
 export default TotalDisplay
