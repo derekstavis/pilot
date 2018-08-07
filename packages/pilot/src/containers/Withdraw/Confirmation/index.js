@@ -65,19 +65,16 @@ class WithdrawConfirmationContainer extends Component {
           amount={amount}
           title={t('pages.withdraw.value_to_transfer')}
           color="#37cc9a"
-          unit={t('pages.withdraw.currency_symbol')}
         />
         <TotalDisplay
           amount={requested}
           title={t('pages.withdraw.requested_value')}
           color="#37cc9a"
-          unit={t('pages.withdraw.currency_symbol')}
         />
         <TotalDisplay
           amount={transferCost}
           title={t('pages.withdraw.transfer_cost')}
           color="#ff796f"
-          unit={t('pages.withdraw.currency_symbol')}
         />
       </Summary>
     )

@@ -156,19 +156,16 @@ class WithdrawFormContainer extends Component {
           amount={amount}
           color={chooseTransferCardColor(amount)}
           title={t('pages.withdraw.value_to_transfer')}
-          unit={t('pages.withdraw.currency_symbol')}
         />
         <TotalDisplay
           amount={requested}
           color="#37cc9a"
           title={t('pages.withdraw.requested_value')}
-          unit={t('pages.withdraw.currency_symbol')}
         />
         <TotalDisplay
           amount={transferCost}
           color="#ff796f"
           title={t('pages.withdraw.transfer_cost')}
-          unit={t('pages.withdraw.currency_symbol')}
         />
       </Summary>
     )
