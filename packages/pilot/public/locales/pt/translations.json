@@ -542,7 +542,7 @@
       "min_length": "Deve ter pelo menos {{length}} caracteres",
       "number": "Deve ser um número",
       "password_required": "Senha obrigatória",
-      "refund_amount_with_symbol": "Valor do estorno R$",
+      "refund_amount_with_symbol": "Valor do estorno (R$)",
       "refund_amount": "Valor do estorno",
       "refund_data": "Dados do estorno",
       "required": "Campo obrigatório",

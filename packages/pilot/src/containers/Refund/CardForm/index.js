@@ -114,7 +114,7 @@ class CardForm extends Component {
 
               <Col palm={12} tablet={5} desk={5} tv={5}>
                 <FormInput
-                  label={t('pages.refund.refund_amount')}
+                  label={t('pages.refund.refund_amount_with_symbol')}
                   name="amount"
                   renderer={props => (
                     <CurrencyInput

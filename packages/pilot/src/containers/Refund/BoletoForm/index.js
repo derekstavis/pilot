@@ -215,6 +215,7 @@ class BoletoForm extends Component {
               </Col>
               <Col palm={12} tablet={4} desk={4} tv={4}>
                 <FormInput
+                  label={t('pages.refund.refund_amount_with_symbol')}
                   name="amount"
                   renderer={props => (
                     <CurrencyInput
