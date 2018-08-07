@@ -72,19 +72,16 @@ class AnticipationResult extends Component {
           amount={requested}
           color="#37cc9a"
           title={t('pages.anticipation.requested.title')}
-          unit={t('pages.anticipation.currency_symbol')}
         />
         <TotalDisplay
           amount={totalCost}
           color="#ff796f"
           title={t('pages.anticipation.cost.title')}
-          unit={t('pages.anticipation.currency_symbol')}
         />
         <TotalDisplay
           amount={amount}
           color={chooseTotalDisplayColor(amount)}
           title={t('pages.anticipation.amount.title')}
-          unit={t('pages.anticipation.currency_symbol')}
         />
       </Summary>
     )

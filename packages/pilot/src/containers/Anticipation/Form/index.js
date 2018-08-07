@@ -114,8 +114,6 @@ class AnticipationFormContainer extends Component {
       hasErrors,
     } = this.state
 
-    const unit = t('currency_symbol')
-
     return (
       <Fragment>
         <Row stretch>
@@ -178,7 +176,6 @@ class AnticipationFormContainer extends Component {
                             <span>{t('pages.anticipation.requested.title')}</span>
                           </div>
                         }
-                        unit={unit}
                       />
                     </Col>
                   </Row>
@@ -222,7 +219,6 @@ class AnticipationFormContainer extends Component {
                             <span>{t('pages.anticipation.cost.title')}</span>
                           </div>
                         }
-                        unit={unit}
                       />
                     </Col>
                   </Row>
@@ -248,7 +244,6 @@ class AnticipationFormContainer extends Component {
                             <span>{t('pages.anticipation.amount.title')}</span>
                           </div>
                         }
-                        unit={unit}
                       />
                     </Col>
                   </Row>
