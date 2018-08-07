@@ -6,13 +6,13 @@ import {
   omit,
 } from 'ramda'
 
-import currencyFormatter from '../../formatters/currency'
+import decimalCurrency from '../../formatters/decimalCurrency'
 
 const removeNonDigits = replace(/\D+/g, '')
 
 const formatter = pipe(
   removeNonDigits,
-  currencyFormatter
+  decimalCurrency
 )
 
 const notAllowedProps = [
