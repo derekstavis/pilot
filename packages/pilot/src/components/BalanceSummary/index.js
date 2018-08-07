@@ -45,7 +45,6 @@ const BalanceSummary = ({ amount, dates }) => (
                 color={colors[type]}
                 key={type}
                 title={amount[type].title}
-                unit={amount[type].unit}
               />
             ))
           }
@@ -57,7 +56,6 @@ const BalanceSummary = ({ amount, dates }) => (
 
 const totalShape = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  unit: PropTypes.string,
   value: PropTypes.number,
 })
 
