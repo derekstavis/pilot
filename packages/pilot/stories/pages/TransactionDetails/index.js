@@ -90,7 +90,6 @@ const totalDisplayLabels = {
   captured_at: `Capturado em ${
     moment(transactionMock.captured_at).format('L')
   }`,
-  currency_symbol: 'R$',
   mdr: `MDR: R$ ${
     currencyFormatter(transactionMock.payment.cost_amount || 0)
   }`,

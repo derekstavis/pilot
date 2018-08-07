@@ -406,7 +406,6 @@ class TransactionDetails extends Component {
       captured_at: captured_at
         ? t('captured_at', { date: moment(captured_at).format('L') })
         : t('pages.transaction.not_captured'),
-      currency_symbol: t('currency_symbol'),
       mdr: t('models.payment.mdr',
         { value: currencyFormatter(payment.mdr_amount || 0) }
       ),
