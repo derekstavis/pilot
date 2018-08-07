@@ -16,19 +16,16 @@ const SummaryExample = () => (
           amount={9995000}
           color="#37cc9a"
           title="Valor a ser transferido"
-          unit="R$"
         />
         <TotalDisplay
           amount={10000000}
           color="#37cc9a"
           title="Valor Solicitado"
-          unit="R$"
         />
         <TotalDisplay
           amount={-367}
           color="#ff796f"
           title="Custo da transferência"
-          unit="R$"
         />
       </Summary>
     </CardContent>
