@@ -25,6 +25,7 @@ import {
 } from 'ramda'
 
 import buildResult from './result'
+import isCapturable from './isCapturable'
 import isRefundable from './isRefundable'
 import isReprocessable from './isReprocessable'
 
@@ -76,6 +77,7 @@ const addCapabilities = client => (data) => {
     ))
 
   return props({
+    capturable: resolve(isCapturable(data.transaction)),
     refundable: resolve(isRefundable(data.transaction)),
     reprocessable: canReprocess,
   })
