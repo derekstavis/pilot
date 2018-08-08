@@ -13,3 +13,7 @@
   height: 100%;
   padding: var(--spacing-small);
 }
+
+.children {
+  font-size: 18px;
+}

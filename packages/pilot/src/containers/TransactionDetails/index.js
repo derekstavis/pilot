@@ -589,7 +589,11 @@ class TransactionDetails extends Component {
         title: headerLabels.installmentsLabel,
       },
       {
-        children: currencyFormatter(amount),
+        children: (
+          <strong className={style.children}>
+            {currencyFormatter(amount)}
+          </strong>
+        ),
         title: getHeaderAmountLabel(transaction, headerLabels),
       },
     ]
