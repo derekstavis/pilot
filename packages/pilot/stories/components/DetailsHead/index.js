@@ -1,22 +1,34 @@
 import React from 'react'
 
+import IconDownload from 'emblematic-icons/svg/Download24.svg'
 import IconReprocess from 'emblematic-icons/svg/Reprocess24.svg'
 import IconReverse from 'emblematic-icons/svg/Reverse24.svg'
-import IconDownload from 'emblematic-icons/svg/Download24.svg'
 
-import { Legend } from 'former-kit'
 import { action } from '@storybook/addon-actions'
+import { Legend } from 'former-kit'
 
-import Section from '../../Section'
 import DetailsHead from '../../../src/components/DetailsHead'
+import Section from '../../Section'
 
 const DetailsHeadExample = () => (
   <Section>
     <DetailsHead
       actions={[
-        { title: 'Reprocessar', icon: <IconReprocess width={12} height={12} />, onClick: action('reprocessar') },
-        { title: 'Estornar', icon: <IconReverse width={12} height={12} />, onClick: action('extornar') },
-        { title: 'Exportar', icon: <IconDownload width={12} height={12} />, onClick: action('exportar') },
+        {
+          icon: <IconReprocess width={12} height={12} />,
+          onClick: action('reprocessar'),
+          title: 'Reprocessar',
+        },
+        {
+          icon: <IconReverse width={12} height={12} />,
+          onClick: action('extornar'),
+          title: 'Estornar',
+        },
+        {
+          icon: <IconDownload width={12} height={12} />,
+          onClick: action('exportar'),
+          title: 'Exportar',
+        },
       ]}
       identifier="#1234567"
       properties={[
@@ -29,7 +41,7 @@ const DetailsHeadExample = () => (
           title: 'Pagamento',
         },
         {
-          children: 'R$ 6,70',
+          children: <strong style={{ fontSize: 18 }}>R$ 6,70</strong>,
           title: 'Valor emitido',
         },
       ]}

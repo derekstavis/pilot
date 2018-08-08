@@ -17,7 +17,8 @@
   }
 
   & > span {
-    margin-bottom: var(--spacing-tiny);
+    color: var(--color-light-steel-100);
+    font-size: 12px;
     text-transform: uppercase;
   }
 
@@ -31,6 +32,7 @@
 .identifier {
   color: var(--color-light-steel-100);
   font-size: 28px;
+  font-weight: bold;
   line-height: 1;
   margin: 0;
   max-width: 300px;
@@ -45,7 +47,12 @@
   }
 }
 
-.propertyChildren:empty {
-  border-top: 1px solid var(--color-light-steel-50);
-  margin-top: var(--spacing-small);
+.propertyChildren {
+  color: var(--color-light-steel-100);
+  font-size: 14px;
+
+  &:empty {
+    border-top: 1px solid var(--color-light-steel-50);
+    margin-top: var(--spacing-small);
+  }
 }

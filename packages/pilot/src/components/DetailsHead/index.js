@@ -26,7 +26,9 @@ const DetailsHead = ({
       {properties.map(property => (
         <div key={property.title} className={style.item}>
           <span>{property.title}</span>
-          <div className={style.propertyChildren}>{property.children}</div>
+          <div className={style.propertyChildren}>
+            {property.children}
+          </div>
         </div>
       ))}
     </div>
