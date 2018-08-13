@@ -28,6 +28,13 @@ class CompanySettings extends Component {
       address,
       apiKeys,
       apiVersion,
+      bankAccounts,
+      bankActionsDisabled,
+      bankAccountSelected,
+      bankAccountSelectActionDisabled,
+      bankAccountSelectedView,
+      bankData,
+      bankErrors,
       boletoActionsDisabled,
       boletoDaysToAddInExpirationDate,
       boletoDisabled,
@@ -40,6 +47,10 @@ class CompanySettings extends Component {
       handleCreateUser,
       handleDeleteUser,
       managingPartner,
+      onBankAccountCancel,
+      onBankAccountChange,
+      onBankAccountCreate,
+      onBankAccountSelect,
       onBoletoSettingsCancel,
       onBoletoSettingsChange,
       onBoletoSettingsSubmit,
@@ -103,14 +114,38 @@ class CompanySettings extends Component {
         {selectedIndex === 3 &&
           <RegisterInfoTab
             address={address}
+            bankAccounts={bankAccounts}
+            bankAccountActionsDisabled={bankActionsDisabled}
+            bankAccountData={bankData}
+            bankAccountErrors={bankErrors}
+            bankAccountSelected={bankAccountSelected}
+            bankAccountSelectActionDisabled={bankAccountSelectActionDisabled}
+            bankAccountSelectedView={bankAccountSelectedView}
             general={general}
             managingPartner={managingPartner}
+            onBankAccountCancel={onBankAccountCancel}
+            onBankAccountChange={onBankAccountChange}
+            onBankAccountCreate={onBankAccountCreate}
+            onBankAccountSelect={onBankAccountSelect}
             t={t}
           />
         }
       </Card>
     )
   }
+}
+
+const bankAccountShape = {
+  agencia: PropTypes.string,
+  agencia_dv: PropTypes.string,
+  bank_code: PropTypes.string,
+  conta: PropTypes.string,
+  conta_dv: PropTypes.string,
+  document_number: PropTypes.string,
+  document_type: PropTypes.string,
+  id: PropTypes.number,
+  legal_name: PropTypes.string,
+  type: PropTypes.string,
 }
 
 CompanySettings.propTypes = {
@@ -131,6 +166,33 @@ CompanySettings.propTypes = {
     title: PropTypes.string.isRequired,
   }),
   apiVersion: PropTypes.string,
+  bankAccounts: PropTypes.arrayOf(
+    PropTypes.shape(bankAccountShape).isRequired
+  ).isRequired,
+  bankActionsDisabled: PropTypes.bool.isRequired,
+  bankAccountSelected: PropTypes.shape(bankAccountShape).isRequired,
+  bankAccountSelectActionDisabled: PropTypes.bool.isRequired,
+  bankAccountSelectedView: PropTypes.oneOf([
+    'addition', 'selection',
+  ]).isRequired,
+  bankData: PropTypes.shape({
+    account: PropTypes.string,
+    accountCd: PropTypes.string,
+    agency: PropTypes.string,
+    agencyCd: PropTypes.string,
+    bankCode: PropTypes.string,
+    documentNumber: PropTypes.string.isRequired,
+    legalName: PropTypes.string.isRequired,
+    type: PropTypes.string,
+  }),
+  bankErrors: PropTypes.shape({
+    account: PropTypes.string,
+    accountCd: PropTypes.string,
+    agency: PropTypes.string,
+    agencyCd: PropTypes.string,
+    bankCode: PropTypes.string,
+    type: PropTypes.string,
+  }),
   boletoActionsDisabled: PropTypes.bool.isRequired,
   boletoDaysToAddInExpirationDate: PropTypes.string,
   boletoDisabled: PropTypes.bool.isRequired,
@@ -167,6 +229,10 @@ CompanySettings.propTypes = {
     cpf: PropTypes.string,
     email: PropTypes.string,
   }).isRequired,
+  onBankAccountCancel: PropTypes.func.isRequired,
+  onBankAccountChange: PropTypes.func.isRequired,
+  onBankAccountCreate: PropTypes.func.isRequired,
+  onBankAccountSelect: PropTypes.func.isRequired,
   onBoletoSettingsCancel: PropTypes.func.isRequired,
   onBoletoSettingsChange: PropTypes.func.isRequired,
   onBoletoSettingsSubmit: PropTypes.func.isRequired,
@@ -192,6 +258,15 @@ CompanySettings.propTypes = {
 CompanySettings.defaultProps = {
   apiKeys: null,
   apiVersion: null,
+  bankData: {
+    account: '',
+    accountCd: '',
+    agency: '',
+    agencyCd: '',
+    bankCode: '',
+    type: '',
+  },
+  bankErrors: null,
   boletoDaysToAddInExpirationDate: null,
   boletoInstructions: null,
   t: t => t,
