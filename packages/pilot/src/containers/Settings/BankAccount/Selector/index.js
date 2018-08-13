@@ -9,7 +9,10 @@ import {
 
 import IconCheck from 'emblematic-icons/svg/Check32.svg'
 
-const getColumns = (selectedAccountId, onSelect, t) => [
+import agencyAccountFormetter from '../../../../formatters/agencyAccount'
+import accountTypeFormatter from '../../../../formatters/accountType'
+
+const getColumns = (selectedAccountId, onSelect, t, disabled) => [
   {
     accessor: ['legal_name'],
     orderable: false,
@@ -25,19 +28,20 @@ const getColumns = (selectedAccountId, onSelect, t) => [
     accessor: ['agencia'],
     align: 'end',
     orderable: false,
-    renderer: item => `${item.agencia}-${item.agencia_dv}`,
+    renderer: item => agencyAccountFormetter(item.agencia, item.agencia_dv),
     title: t('pages.settings.company.card.register.bank.agency'),
   },
   {
     accessor: ['conta'],
     align: 'end',
     orderable: false,
-    renderer: item => `${item.conta}-${item.conta_dv}`,
+    renderer: item => agencyAccountFormetter(item.conta, item.conta_dv),
     title: t('pages.settings.company.card.register.bank.account'),
   },
   {
     accessor: ['type'],
     orderable: false,
+    renderer: item => accountTypeFormatter(t, item.type),
     title: t('pages.settings.company.card.register.bank.account_type'),
   },
   {
@@ -56,11 +60,12 @@ const getColumns = (selectedAccountId, onSelect, t) => [
 
       return (
         <Button
+          disabled={disabled}
           fill="outline"
           onClick={() => onSelect(item.id)}
           size="tiny"
         >
-          {t('bank_account_select')}
+          {t('pages.settings.company.card.register.bank.select')}
         </Button>
       )
     },
@@ -70,13 +75,14 @@ const getColumns = (selectedAccountId, onSelect, t) => [
 
 const BankAccountSelector = ({
   accounts,
+  disabled,
   onSelect,
   selectedAccountId,
   t,
 }) => (
   <CardContent>
     <Table
-      columns={getColumns(selectedAccountId, onSelect, t)}
+      columns={getColumns(selectedAccountId, onSelect, t, disabled)}
       rows={accounts}
     />
   </CardContent>
@@ -86,10 +92,10 @@ BankAccountSelector.propTypes = {
   accounts: PropTypes.arrayOf(
     PropTypes.shape({
       agencia: PropTypes.string.isRequired,
-      agencia_dv: PropTypes.string.isRequired,
+      agencia_dv: PropTypes.string,
       bank_code: PropTypes.string.isRequired,
       conta: PropTypes.string.isRequired,
-      conta_dv: PropTypes.string.isRequired,
+      conta_dv: PropTypes.string,
       document_number: PropTypes.string.isRequired,
       document_type: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
@@ -98,8 +104,13 @@ BankAccountSelector.propTypes = {
     }).isRequired
   ).isRequired,
   onSelect: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
   selectedAccountId: PropTypes.number.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+BankAccountSelector.defaultProps = {
+  disabled: false,
 }
 
 export default BankAccountSelector

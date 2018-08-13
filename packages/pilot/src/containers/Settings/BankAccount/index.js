@@ -9,6 +9,9 @@ import {
   Spacing,
 } from 'former-kit'
 import IconWithdraw from 'emblematic-icons/svg/Withdraw32.svg'
+
+import agencyAccountFormatter from '../../../formatters/agencyAccount'
+
 import BankAccountForm from './Add'
 import BankAccountSelector from './Selector'
 
@@ -26,6 +29,10 @@ class BankAccount extends Component {
     this.renderSubtitle = this.renderSubtitle.bind(this)
   }
 
+  componentWillReceiveProps ({ selectedView }) {
+    this.handleChange(selectedView)
+  }
+
   handleChange (selected) {
     this.setState({
       selected,
@@ -41,18 +48,21 @@ class BankAccount extends Component {
   renderSubtitle (account) {
     const { t } = this.props
 
-    const textMainAccount = t('pages.settings.company.register.bank.subtitles.main_account')
-    const textAgency = t('pages.settings.company.register.bank.subtitles.agency')
-    const textAccount = t('pages.settings.company.register.bank.subtitles.account')
     const bankName = t(`models.bank_code.${account.bank_code}`)
+    const textAccount = t('pages.settings.company.card.register.bank.account')
+    const textAgency = t('pages.settings.company.card.register.bank.agency')
+    const textMainAccount = t('pages.settings.company.card.register.bank.main_account')
+
+    const renderAgency = agencyAccountFormatter(account.agencia, account.agencia_dv)
+    const renderAccount = agencyAccountFormatter(account.conta, account.conta_dv)
 
     return (
       <Fragment>
         {`${textMainAccount} ${account.legal_name}`}
         <Spacing size="large" />
         {`${bankName} | `}
-        {`${textAgency}: ${account.agencia}-${account.agencia_dv} | `}
-        {`${textAccount}: ${account.conta}-${account.conta_dv}`}
+        {`${textAgency}: ${renderAgency} | `}
+        {`${textAccount}: ${renderAccount}`}
       </Fragment>
     )
   }
@@ -73,6 +83,7 @@ class BankAccount extends Component {
       onChange,
       onSubmit,
       selectedAccount,
+      selectionActionDisabled,
       t,
     } = this.props
 
@@ -87,7 +98,7 @@ class BankAccount extends Component {
             icon={<IconWithdraw width={16} height={16} />}
             onClick={this.handleCollapse}
             subtitle={this.renderSubtitle(selectedAccount)}
-            title={t('pages.settings.company.register.title.bank')}
+            title={t('pages.settings.company.card.register.title.bank')}
           />
           {!collapsed &&
             <Fragment>
@@ -97,11 +108,11 @@ class BankAccount extends Component {
                   onChange={this.handleChange}
                   options={[
                     {
-                      title: t('pages.settings.company.register.title.select'),
+                      title: t('pages.settings.company.card.register.title.select'),
                       value: 'selection',
                     },
                     {
-                      title: t('pages.settings.company.register.title.add'),
+                      title: t('pages.settings.company.card.register.title.add'),
                       value: 'addition',
                     },
                   ]}
@@ -112,6 +123,7 @@ class BankAccount extends Component {
               {viewSelectAccount &&
                 <BankAccountSelector
                   accounts={accounts}
+                  disabled={selectionActionDisabled}
                   onSelect={onAccountSelect}
                   selectedAccountId={selectedAccount.id}
                   t={t}
@@ -138,16 +150,16 @@ class BankAccount extends Component {
 }
 
 const accountShape = {
-  agencia: PropTypes.string.isRequired,
+  agencia: PropTypes.string,
   agencia_dv: PropTypes.string,
-  bank_code: PropTypes.string.isRequired,
-  conta: PropTypes.string.isRequired,
-  conta_dv: PropTypes.string.isRequired,
-  document_number: PropTypes.string.isRequired,
-  document_type: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  legal_name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  bank_code: PropTypes.string,
+  conta: PropTypes.string,
+  conta_dv: PropTypes.string,
+  document_number: PropTypes.string,
+  document_type: PropTypes.string,
+  id: PropTypes.number,
+  legal_name: PropTypes.string,
+  type: PropTypes.string,
 }
 
 BankAccount.propTypes = {
@@ -176,6 +188,10 @@ BankAccount.propTypes = {
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   selectedAccount: PropTypes.shape(accountShape).isRequired,
+  selectionActionDisabled: PropTypes.bool.isRequired,
+  selectedView: PropTypes.oneOf([
+    'addition', 'selection',
+  ]),
   t: PropTypes.func.isRequired,
 }
 
@@ -189,6 +205,7 @@ BankAccount.defaultProps = {
     type: '',
   },
   errors: null,
+  selectedView: 'selection',
 }
 
 export default BankAccount

@@ -52,8 +52,8 @@ const BankAccountForm = ({
   const accountTypeGenerator = optionGenerator(t, 'models.account_type')
   const accountTypeOptions = map(accountTypeGenerator, accountTypes)
 
-  const isRequired = requiredValidation(t('pages.bank_account.required'))
-  const isNumber = numberValidation(t('pages.bank_account.number'))
+  const isRequired = requiredValidation(t('pages.settings.company.card.register.bank.required'))
+  const isNumber = numberValidation(t('pages.settings.company.card.register.bank.number'))
 
   return (
     <Form
@@ -78,12 +78,12 @@ const BankAccountForm = ({
         accountCd: [
           isRequired,
           accountCDValidation(
-            t('pages.bank_account.invalid_account_check_digit')
+            t('pages.settings.company.card.register.bank.invalid_cd')
           ),
         ],
         agency: [isRequired, isNumber],
         agencyCd: agencyCDValidation(
-          t('pages.bank_account.invalid_agency_check_digit')
+          t('pages.settings.company.card.register.bank.invalid_cd')
         ),
         bankCode: isRequired,
         type: isRequired,
@@ -94,13 +94,13 @@ const BankAccountForm = ({
           <Row>
             <Col palm={12} tablet={4} desk={4} tv={4}>
               <Property
-                title={t('models.transaction.legal_name')}
+                title={t('models.bank_account.legal_name')}
                 value={legalName}
               />
             </Col>
             <Col palm={12} tablet={3} desk={3} tv={3}>
               <Property
-                title={t('models.transaction.document_number')}
+                title={t('models.bank_account.document')}
                 value={formatCpfCnpj(documentNumber)}
               />
             </Col>
@@ -173,14 +173,14 @@ const BankAccountForm = ({
           onClick={onCancel}
           type="reset"
         >
-          {t('pages.bank_account.cancel')}
+          {t('pages.settings.company.card.register.bank.cancel')}
         </Button>
         <Button
           disabled={actionsDisabled}
           fill="gradient"
           type="submit"
         >
-          {t('pages.bank_account.submit')}
+          {t('pages.settings.company.card.register.bank.confirm')}
         </Button>
       </CardActions>
     </Form>
