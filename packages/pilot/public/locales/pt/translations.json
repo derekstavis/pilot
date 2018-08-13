@@ -735,6 +735,7 @@
             }
           },
           "register": {
+            "bank_title": "Dados bancários",
             "card_title": "As alterações dos dados da empresa estão sujeitas à análise. Se tiver alguma dúvida, entre em contato conosco.",
             "card_company": "Dados da empresa",
             "account_manager": "Contato responsável",
@@ -768,11 +769,14 @@
               "agency": "Agência",
               "account": "Conta",
               "account_type": "Tipo de conta",
-              "subtitles": {
-                "main_account": "Conta principal",
-                "agency:": "Agência",
-                "account": "Conta"
-              }
+              "main_account": "Conta principal",
+              "select": "Selecionar",
+              "required": "Campo obrigatório",
+              "number": "Deve ser um número",
+              "bank_code": "Banco",
+              "invalid_cd": "Digito verificador inválido",
+              "cancel": "Cancelar",
+              "confirm": "Salvar Alterações"
             },
             "address": {
               "form": {
