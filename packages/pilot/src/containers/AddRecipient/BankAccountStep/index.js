@@ -34,16 +34,32 @@ export default class BankAccountStep extends Component {
 
   renderSelectedForm () {
     const { selectedForm } = this.state
+    const { data } = this.props
 
     if (selectedForm === ADD_ACCOUNT) {
-      return <AddAccount {...this.props} />
+      return (
+        <AddAccount
+          {...this.props}
+          data={data.addAccount}
+        />
+      )
     }
 
-    return <SelectAccount {...this.props} />
+    return (
+      <SelectAccount
+        {...this.props}
+        data={data.selectAccount}
+      />
+    )
   }
 
   render () {
-    const { t, accounts } = this.props
+    const {
+      data,
+      accounts,
+      t,
+    } = this.props
+
     const displaySelectAccount = hasItems(accounts)
 
     if (displaySelectAccount) {
@@ -79,19 +95,41 @@ export default class BankAccountStep extends Component {
           <strong>{t('bankAccountLabel')}</strong>
           <p>{t('addNewAccount')}</p>
         </CardContent>
-        <AddAccount {...this.props} />
+        <AddAccount
+          {...this.props}
+          data={data.addAccount}
+        />
       </Fragment>
     )
   }
 }
 
 BankAccountStep.propTypes = {
+  data: PropTypes.shape({
+    addAccount: PropTypes.shape({
+      account_name: PropTypes.string,
+      account_number: PropTypes.string,
+      account_type: PropTypes.string,
+      agency: PropTypes.string,
+      bank: PropTypes.string,
+    }),
+    selectAccount: PropTypes.shape({
+      account_id: PropTypes.string,
+    }),
+  }),
   accounts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
     })
   ),
+  errors: PropTypes.shape({
+    account_name: PropTypes.string,
+    account_number: PropTypes.string,
+    account_type: PropTypes.string,
+    agency: PropTypes.string,
+    bank: PropTypes.string,
+  }),
   onContinue: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
@@ -100,4 +138,17 @@ BankAccountStep.propTypes = {
 
 BankAccountStep.defaultProps = {
   accounts: [],
+  data: {
+    addAccount: {
+      account_name: '',
+      account_number: '',
+      account_type: 'conta_corrente',
+      agency: '',
+      bank: '',
+    },
+    selectAccount: {
+      account_id: '',
+    },
+  },
+  errors: {},
 }

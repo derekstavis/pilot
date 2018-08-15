@@ -22,6 +22,8 @@ import createRequiredValidation from '../../../../validation/required'
 import style from '../style.css'
 
 const AddAccount = ({
+  data,
+  errors,
   onBack,
   onCancel,
   onContinue,
@@ -37,13 +39,7 @@ const AddAccount = ({
 
   return (
     <Form
-      data={{
-        account_name: '',
-        account_number: '',
-        account_type: accountTypeOptions[0].value,
-        agency: '',
-        bank: '',
-      }}
+      data={data}
       validateOn="blur"
       validation={{
         account_name: [required],
@@ -55,6 +51,7 @@ const AddAccount = ({
       onSubmit={(formData, formErrors = {}) => {
         if (isEmpty(formErrors)) onContinue(formData)
       }}
+      errors={errors}
     >
       <CardContent>
         <Grid>
@@ -138,10 +135,35 @@ const AddAccount = ({
 }
 
 AddAccount.propTypes = {
+  data: PropTypes.shape({
+    account_name: PropTypes.string,
+    account_number: PropTypes.string,
+    account_type: PropTypes.string,
+    agency: PropTypes.string,
+    bank: PropTypes.string,
+  }),
+  errors: PropTypes.shape({
+    account_name: PropTypes.string,
+    account_number: PropTypes.string,
+    account_type: PropTypes.string,
+    agency: PropTypes.string,
+    bank: PropTypes.string,
+  }),
   onContinue: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+AddAccount.defaultProps = {
+  data: {
+    account_name: '',
+    account_number: '',
+    account_type: 'conta_corrente',
+    agency: '',
+    bank: '',
+  },
+  errors: {},
 }
 
 export default AddAccount

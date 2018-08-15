@@ -22,6 +22,7 @@ const SelectAccount = ({
   onBack,
   onCancel,
   onContinue,
+  data,
   t,
 }) => {
   const options = accounts.map(toDropdownOptions)
@@ -31,6 +32,7 @@ const SelectAccount = ({
       onSubmit={onContinue}
       data={{
         account_id: options[0].value,
+        ...data,
       }}
     >
       <CardContent>
@@ -83,6 +85,9 @@ SelectAccount.propTypes = {
       name: PropTypes.string.isRequired,
     })
   ),
+  data: PropTypes.shape({
+    account_id: PropTypes.string.isRequired,
+  }),
   onBack: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   onContinue: PropTypes.func.isRequired,
@@ -91,6 +96,7 @@ SelectAccount.propTypes = {
 
 SelectAccount.defaultProps = {
   accounts: [],
+  data: {},
 }
 
 export default SelectAccount
