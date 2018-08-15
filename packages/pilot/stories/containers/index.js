@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import AnticipationForm from './Anticipation/Form'
 import AddAccount from './AddRecipient/BankAccountStep/AddAccount'
 import BankAccountStep from './AddRecipient/BankAccountStep'
+import ConfirmRecipientStep from './AddRecipient/ConfirmStep'
 import BoletoForm from './Refund/BoletoForm'
 import BoletoRefundConfirm from './Refund/BoletoConfirmation'
 import BoletoRefundResult from './Refund/BoletoResult'
@@ -60,6 +61,9 @@ storiesOf('Containers', module)
   ))
   .add('Add Account', () => (
     <AddAccount />
+  ))
+  .add('Recipient Confirm Step', () => (
+    <ConfirmRecipientStep />
   ))
   .add('Bank Account Step', () => (
     <BankAccountStep />
