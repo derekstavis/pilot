@@ -29,9 +29,9 @@ const PasswordRecoveryForm = ({
     }}
   >
     <div className={styles.login}>
-      <p className={styles.paragraph}>
+      <span>
         {t('password_recovery.recovery_call')}
-      </p>
+      </span>
       <FormInput
         disabled={loading}
         label={t('email')}

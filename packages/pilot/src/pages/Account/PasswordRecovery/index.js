@@ -5,7 +5,7 @@ import { translate } from 'react-i18next'
 import { compose } from 'ramda'
 import pagarme from 'pagarme'
 import { PasswordRecoveryForm } from '../../../containers/Account/PasswordRecovery'
-import buildParamErrors from '../Login/buildParamErrors'
+import buildResetParamErrors from './buildResetParamErrors'
 
 const enhanced = compose(
   translate(),
@@ -43,12 +43,12 @@ class PasswordRecoveryPage extends PureComponent {
 
         this.props.history.replace('/account/password/recovery/confirmation')
       }).catch((apiErrors) => {
-        const parsedErrors = buildParamErrors(apiErrors)
+        const parsedErrors = buildResetParamErrors(apiErrors)
 
         this.setState({
           loading: false,
           errors: {
-            email: parsedErrors.null,
+            email: parsedErrors.email,
           },
         })
       })

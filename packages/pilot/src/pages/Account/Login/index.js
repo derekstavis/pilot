@@ -48,6 +48,7 @@ const enhanced = compose(
 class LoginPage extends PureComponent {
   constructor () {
     super()
+
     this.handlePasswordRecovery = this.handlePasswordRecovery.bind(this)
   }
 
