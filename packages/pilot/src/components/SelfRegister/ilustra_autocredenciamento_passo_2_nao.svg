@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="365px" height="166px" viewBox="0 0 365 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>ilustração</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Auto-credenciamento" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cadastro---passo-2---Não" transform="translate(-501.000000, -159.000000)">
+            <g id="ilustração" transform="translate(501.000000, 159.000000)">
+                <path d="M75,164.5 L289.5,164.5" id="Line-3" stroke="#17C9B2" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M34.5,164.5 L70,164.5" id="Line-2" stroke="#17C9B2" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M296.5,164.25 L316.5,164.25" id="Line-2-Copy" stroke="#17C9B2" stroke-width="2" stroke-linecap="square"></path>
+                <g id="nuvens" fill="#D9E4EA" opacity="0.509430804">
+                    <rect id="Rectangle-Copy-6" x="20" y="119" width="67" height="13" rx="6.5"></rect>
+                    <rect id="Rectangle-Copy" x="148" y="0" width="162" height="18" rx="8"></rect>
+                    <rect id="Rectangle-Copy-2" x="90" y="23" width="116" height="13" rx="6.5"></rect>
+                    <rect id="Rectangle-Copy-3" x="0" y="43" width="306" height="18" rx="8"></rect>
+                    <rect id="Rectangle-Copy-5" x="197" y="73" width="168" height="18" rx="8"></rect>
+                    <rect id="Rectangle-Copy-7" x="197" y="123" width="106" height="18" rx="8"></rect>
+                    <rect id="Rectangle-Copy-8" x="141" y="147" width="162" height="18" rx="8"></rect>
+                    <rect id="Rectangle-Copy-4" x="33" y="96" width="222" height="13" rx="6.5"></rect>
+                </g>
+                <g transform="translate(55.000000, 39.000000)">
+                    <g id="detalhes">
+                        <path d="M187.783612,42 L187,41.2163884 L189.216388,39 L190,39.7836116 L187.783612,42 Z M184.216388,42 L182,39.7836116 L182.783612,39 L185,41.2163884 L184.216388,42 Z M187.783612,44 L190,46.2163884 L189.216388,47 L187,44.7836116 L187.783612,44 Z M184.216388,44 L185,44.7836116 L182.783612,47 L182,46.2163884 L184.216388,44 Z" id="Combined-Shape-Copy-2" fill="#858C8F"></path>
+                        <circle id="Oval-3" stroke="#858C8F" stroke-width="2" cx="246" cy="102" r="4"></circle>
+                        <circle id="Oval-3-Copy" stroke="#858C8F" stroke-width="2" cx="20" cy="11" r="4"></circle>
+                        <circle id="Oval-3-Copy-2" stroke="#858C8F" stroke-width="2" cx="33" cy="20" r="3"></circle>
+                        <path d="M0,106 L0,104 L15,104 L15,106 L0,106 Z M12,111 L12,109 L24,109 L24,111 L12,111 Z M17,106 L17,104 L23,104 L23,106 L17,106 Z M6,111 L6,109 L11,109 L11,111 L6,111 Z" id="Combined-Shape" fill="#858C8F"></path>
+                        <path d="M194,2 L194,0 L207,0 L207,2 L194,2 Z M204,8 L204,6 L215,6 L215,8 L204,8 Z M208,2 L208,0 L214,0 L214,2 L208,2 Z M198,8 L198,6 L202,6 L202,8 L198,8 Z" id="Combined-Shape-Copy-4" fill="#858C8F"></path>
+                    </g>
+                    <g id="computador" transform="translate(31.000000, 22.000000)">
+                        <path d="M16.9253731,95 L0,95 C0.626865672,99.2 2.19402985,101.9 4.70149254,103.1 C7.20895522,104.3 66.4477612,104.3 182.41791,103.1 C186.80597,101.9 189,99.2 189,95 C189,95 182.104478,95 168.313433,95" id="Path-5" stroke="#8459B9" fill="#FFFFFF"></path>
+                        <rect id="Rectangle-4" stroke="#8459B9" fill="#FFFFFF" x="16.5" y="23.5" width="161" height="72"></rect>
+                        <rect id="Rectangle-3" stroke="#8459B9" fill="#EBF1F4" opacity="0.8" x="22.5" y="26.5" width="149" height="64"></rect>
+                        <path d="M23,0 L172,0 L189,13.95 L189,27.9 C187.666667,29.9666667 185.333333,31 182,31 C178.666667,31 176.333333,29.9666667 175,27.9 C173,29.9666667 170.333333,31 167,31 C163.666667,31 161.666667,29.7083333 161,27.125 C159.666667,29.7083333 157.333333,31 154,31 C150.666667,31 148.333333,29.7083333 147,27.125 C145,29.7083333 142.333333,31 139,31 C135.666667,31 133.666667,29.7083333 133,27.125 C131,29.7083333 128.333333,31 125,31 C121.666667,31 119.333333,29.7083333 118,27.125 C116,29.7083333 113.666667,31 111,31 C108.333333,31 106,29.7083333 104,27.125 C102,29.7083333 99.6666667,31 97,31 C94.3333333,31 92,29.7083333 90,27.125 C88.6666667,29.7083333 86.3333333,31 83,31 C79.6666667,31 77.3333333,29.7083333 76,27.125 C74,29.7083333 71.3333333,31 68,31 C64.6666667,31 62.6666667,29.7083333 62,27.125 C60,29.7083333 57.6666667,31 55,31 C52.3333333,31 50,29.7083333 48,27.125 C46.6666667,29.7083333 44.3333333,31 41,31 C37.6666667,31 35.3333333,29.7083333 34,27.125 C32.6666667,29.7083333 30,31 26,31 C22,31 19.6666667,29.9666667 19,27.9 C17,29.9666667 14.6666667,31 12,31 C9.33333333,31 7,29.7083333 5,27.125 L5,14.725 L23,0 Z" id="Path-6" fill="#17C9B2"></path>
+                        <path d="M75,96 C75.6666667,98 76.6666667,99 78,99 C79.3333333,99 92.6666667,99 118,99 C120,98.3333333 121,97.3333333 121,96 C121,96 105.666667,96 75,96 Z" id="Path-7" stroke="#8459B9"></path>
+                        <path d="M5,16 L189,16" id="Path-9" stroke="#FFFFFF"></path>
+                        <circle id="Oval-2" fill="#9D7BC7" cx="85" cy="55" r="2"></circle>
+                        <circle id="Oval-2-Copy" fill="#9D7BC7" cx="111" cy="55" r="2"></circle>
+                        <path d="M91.5,68.5 L103.5,68.5" id="Line-4" stroke="#9D7BC7" stroke-linecap="square"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
