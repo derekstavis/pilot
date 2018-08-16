@@ -26,6 +26,7 @@ import BalanceTotalDisplay from './BalanceTotalDisplay'
 import BalanceSummary from './BalanceSummary'
 import SidebarSections from './SidebarSections'
 import SidebarSummary from './SidebarSummary'
+import Message from './Message'
 
 storiesOf('Components', module)
   .add('Copy button', () => (
@@ -51,6 +52,9 @@ storiesOf('Components', module)
   ))
   .add('DataDisplay', () => (
     <DataDisplay />
+  ))
+  .add('Message', () => (
+    <Message />
   ))
   .add('Reprocess details', () => (
     <ReprocessDetails />
