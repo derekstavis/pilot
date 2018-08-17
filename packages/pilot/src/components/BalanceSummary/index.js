@@ -41,10 +41,14 @@ const BalanceSummary = ({ amount, dates }) => (
           {
             keys(amount).map(type => (
               <TotalDisplay
+                align="end"
                 amount={amount[type].value}
+                amountSize="large"
                 color={colors[type]}
                 key={type}
                 title={amount[type].title}
+                titleColor={colors[type]}
+                titleSize="medium"
               />
             ))
           }
