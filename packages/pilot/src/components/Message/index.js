@@ -9,45 +9,48 @@ import {
 import style from './style.css'
 
 const Message = ({ image, title, message }) => (
-  <Grid>
-    <Row flex>
-      <Col align="center">
-        {image}
-      </Col>
-    </Row>
-    <Row flex>
-      <Col align="center">
-        {
-          (typeof title === 'string') &&
-            <h2>{title}</h2>
-        }
-        {
-          (typeof title !== 'string') &&
-            title
-        }
-      </Col>
-    </Row>
-    <Row flex>
-      <Col
-        align="center"
-      >
-        <div
-          aria-live="polite"
-          className={style.message}
-          role="status"
+  <div
+    aria-live="polite"
+    role="status"
+  >
+    <Grid>
+      <Row flex>
+        <Col align="center">
+          {image}
+        </Col>
+      </Row>
+      <Row flex>
+        <Col align="center">
+          {
+            (typeof title === 'string') &&
+              <h2>{title}</h2>
+          }
+          {
+            (typeof title !== 'string') &&
+              title
+          }
+        </Col>
+      </Row>
+      <Row flex>
+        <Col
+          align="center"
         >
-          {
-            (typeof message === 'string') &&
-              <span>{message}</span>
-          }
-          {
-            (typeof message !== 'string') &&
-              message
-          }
-        </div>
-      </Col>
-    </Row>
-  </Grid>
+          <span
+            className={style.message}
+          >
+            {
+              (typeof message === 'string') &&
+                <span>{message}</span>
+            }
+            {
+              (typeof message !== 'string') &&
+                message
+            }
+          </span>
+        </Col>
+      </Row>
+    </Grid>
+  </div>
 )
 
 Message.propTypes = {
