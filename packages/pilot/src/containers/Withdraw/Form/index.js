@@ -21,14 +21,14 @@ import {
 } from 'ramda'
 
 import CurrencyInput from '../../../components/CurrencyInput'
+import DataDisplay from '../../../components/DataDisplay'
+import formatCurrency from '../../../formatters/currency'
 import greaterThanValidation from '../../../validation/greaterThan'
 import lessThanOrEqualValidation from '../../../validation/lessThanOrEqual'
 import numberValidation from '../../../validation/number'
 import requiredValidation from '../../../validation/required'
-import DataDisplay from '../../../components/DataDisplay'
-import TotalDisplay from '../../../components/TotalDisplay'
 import Summary from '../../../components/Summary'
-import formatCurrency from '../../../formatters/currency'
+import TotalDisplay from '../../../components/TotalDisplay'
 
 import style from './style.css'
 
@@ -150,22 +150,35 @@ class WithdrawFormContainer extends Component {
       <Summary>
         <DataDisplay
           title={t('pages.withdraw.date')}
+          titleSize="small"
           value={moment(date).format('DD/MM/YYYY')}
         />
         <TotalDisplay
-          amount={amount}
-          color={chooseTransferCardColor(amount)}
-          title={t('pages.withdraw.value_to_transfer')}
-        />
-        <TotalDisplay
+          align="center"
           amount={requested}
+          amountSize="large"
           color="#37cc9a"
           title={t('pages.withdraw.requested_value')}
+          titleColor="#757575"
+          titleSize="small"
         />
         <TotalDisplay
+          align="center"
           amount={transferCost}
+          amountSize="large"
           color="#ff796f"
           title={t('pages.withdraw.transfer_cost')}
+          titleColor="#757575"
+          titleSize="small"
+        />
+        <TotalDisplay
+          align="center"
+          amount={amount}
+          amountSize="large"
+          color={chooseTransferCardColor(amount)}
+          title={t('pages.withdraw.value_to_transfer')}
+          titleColor="#757575"
+          titleSize="small"
         />
       </Summary>
     )

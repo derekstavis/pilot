@@ -13,13 +13,13 @@ import {
   Row,
 } from 'former-kit'
 import DataDisplay from '../../../components/DataDisplay'
-import TotalDisplay from '../../../components/TotalDisplay'
 import DetailsHead from '../../../components/DetailsHead'
-import Summary from '../../../components/Summary'
 import formatAccountType from '../../../formatters/accountType'
 import formatAgencyAccount from '../../../formatters/agencyAccount'
 import formatCpfCnpj from '../../../formatters/cpfCnpj'
 import style from './style.css'
+import Summary from '../../../components/Summary'
+import TotalDisplay from '../../../components/TotalDisplay'
 
 class WithdrawConfirmationContainer extends Component {
   constructor (props) {
@@ -59,22 +59,35 @@ class WithdrawConfirmationContainer extends Component {
       <Summary>
         <DataDisplay
           title={t('pages.withdraw.date')}
+          titleSize="small"
           value={moment(date).format('DD/MM/YYYY')}
         />
         <TotalDisplay
-          amount={amount}
-          title={t('pages.withdraw.value_to_transfer')}
-          color="#37cc9a"
-        />
-        <TotalDisplay
+          align="center"
           amount={requested}
-          title={t('pages.withdraw.requested_value')}
+          amountSize="large"
           color="#37cc9a"
+          title={t('pages.withdraw.requested_value')}
+          titleColor="#757575"
+          titleSize="small"
         />
         <TotalDisplay
+          align="center"
           amount={transferCost}
-          title={t('pages.withdraw.transfer_cost')}
+          amountSize="large"
           color="#ff796f"
+          title={t('pages.withdraw.transfer_cost')}
+          titleColor="#757575"
+          titleSize="small"
+        />
+        <TotalDisplay
+          align="center"
+          amount={amount}
+          amountSize="large"
+          color="#37cc9a"
+          title={t('pages.withdraw.value_to_transfer')}
+          titleColor="#757575"
+          titleSize="small"
         />
       </Summary>
     )
@@ -159,11 +172,11 @@ class WithdrawConfirmationContainer extends Component {
   renderRecipient () {
     const {
       bankAccount: {
-        agencia,
         agencia_dv: agenciaDv,
+        agencia,
         bank_code: bankCode,
-        conta,
         conta_dv: contaDv,
+        conta,
         document_number: documentNumber,
         legal_name: legalName,
         type,
@@ -242,11 +255,11 @@ class WithdrawConfirmationContainer extends Component {
 WithdrawConfirmationContainer.propTypes = {
   amount: PropTypes.number.isRequired,
   bankAccount: PropTypes.shape({
-    agencia: PropTypes.string,
     agencia_dv: PropTypes.string,
+    agencia: PropTypes.string,
     bank_code: PropTypes.string,
-    conta: PropTypes.string,
     conta_dv: PropTypes.string,
+    conta: PropTypes.string,
     document_number: PropTypes.string,
     document_type: PropTypes.string,
     legal_name: PropTypes.string,
