@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Form from 'react-vanilla-form'
+
 import {
   Button,
   Card,
@@ -15,6 +16,7 @@ import {
   Row,
   Spacing,
 } from 'former-kit'
+
 import { range } from 'ramda'
 
 import createCpfCnpjValidation from '../../../validation/cpfCnpj'
@@ -124,12 +126,18 @@ class IdentificationStep extends Component {
     this.renderDocumentInput = this.renderDocumentInput.bind(this)
     this.toggleAdditionalInformation =
       this.toggleAdditionalInformation.bind(this)
+    this.validateRepeatedDocuments = this.validateRepeatedDocuments.bind(this)
   }
 
   onFormSubmit (formData, formErrors) {
-    if (!formErrors) {
-      this.props.onContinue(formData)
+    const updatedErrors = this.validateRepeatedDocuments(formErrors)
+    if (updatedErrors) {
+      this.setState({
+        formErrors: updatedErrors,
+      })
+      return
     }
+    this.props.onContinue(formData)
   }
 
   onFormChange (formData) {
@@ -161,6 +169,45 @@ class IdentificationStep extends Component {
     }
 
     this.onFormChange(formData)
+  }
+
+  validateRepeatedDocuments (errors = {}) {
+    const { t } = this.props
+    const formErrors = errors
+
+    const {
+      partner0,
+      partner1,
+      partner2,
+      partner3,
+      partner4,
+    } = this.state.formData
+
+    const partners = {
+      partner0,
+      partner1,
+      partner2,
+      partner3,
+      partner4,
+    }
+
+    const uniqueDocuments = {}
+    const repeatedErrorMessage =
+      t('pages.recipients.identification.error_repeated_document')
+
+    Object.keys(partners).forEach((partner) => {
+      const { cpf } = partners[partner]
+      if (cpf) {
+        if (!uniqueDocuments[cpf]) {
+          uniqueDocuments[cpf] = true
+        } else {
+          if (!formErrors[partner]) formErrors[partner] = {}
+          formErrors[partner].cpf = repeatedErrorMessage
+        }
+      }
+    })
+
+    return formErrors
   }
 
   toggleAdditionalInformation () {
@@ -333,6 +380,7 @@ class IdentificationStep extends Component {
 
     const {
       formData,
+      formErrors,
       formData: {
         documentType,
       },
@@ -341,7 +389,7 @@ class IdentificationStep extends Component {
     return (
       <Form
         data={this.state.formData}
-        errors={errors}
+        errors={formErrors || errors}
         onChange={this.onFormChange}
         onSubmit={this.onFormSubmit}
         validateOn="blur"
