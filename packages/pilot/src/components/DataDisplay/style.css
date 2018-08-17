@@ -23,12 +23,8 @@
   height: 18px;
   text-transform: uppercase;
 
-  & h2 {
-    font-size: 14px;
-  }
-
   & > span {
-    color: var(--color-light-chromium-100);
+    font-weight: bold;
     margin-left: calc(var(--spacing-tiny) - 4px);
   }
 }
@@ -36,6 +32,7 @@
 .value {
   align-items: center;
   display: flex;
+  margin: var(--spacing-tiny) 0 0 0;
 
   & small {
     font-size: 18px;
@@ -64,6 +61,11 @@
   }
 }
 
+.justify {
+  justify-content: center;
+  height: auto;
+}
+
 .center {
   align-items: center;
 
@@ -86,4 +88,26 @@
   & .subtitle {
     text-align: left;
   }
+}
+
+.small {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.medium {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.large {
+  color: var(--color-light-steel-100);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.huge {
+  color: var(--color-light-steel-100);
+  font-size: 28px;
+  font-weight: bold;
 }

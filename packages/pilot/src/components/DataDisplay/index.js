@@ -10,10 +10,11 @@ const DataDisplay = ({
   color,
   subtitle,
   title,
+  titleSize,
   value,
 }) => (
   <div className={
-      classNames(style.content, {
+      classNames(style.content, style.justify, {
         [style[align]]: align,
       })
     }
@@ -21,7 +22,17 @@ const DataDisplay = ({
     <div className={style.title}>
       {
         typeof title === 'string'
-          ? <h2 style={{ color }}>{title}</h2>
+          ? (
+            <h2
+              className={
+              classNames({
+                [style[titleSize]]: titleSize,
+              })}
+              style={{ color }}
+            >
+              {title}
+            </h2>
+          )
           : title
       }
     </div>
@@ -51,6 +62,12 @@ DataDisplay.propTypes = {
     PropTypes.node,
     PropTypes.string,
   ]).isRequired,
+  titleSize: PropTypes.oneOf([
+    'small',
+    'medium',
+    'large',
+    'huge',
+  ]),
   value: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -62,6 +79,7 @@ DataDisplay.defaultProps = {
   children: null,
   color: '#757575',
   subtitle: null,
+  titleSize: 'small',
   value: '',
 }
 
