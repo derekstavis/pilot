@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import {
   always,
+  either,
   ifElse,
+  isEmpty,
+  isNil,
+  objOf,
   pipe,
   propOr,
 } from 'ramda'
@@ -39,6 +43,12 @@ const validateDate = (t, isValidDay) => pipe(
   )
 )
 
+const buildError = ifElse(
+  either(isEmpty, isNil),
+  always(null),
+  objOf('requested')
+)
+
 const AnticipationForm = ({
   anticipationInfo,
   dates,
@@ -65,9 +75,7 @@ const AnticipationForm = ({
       timeframe,
       transfer: isAutomaticTransfer ? 'yes' : 'no',
     }}
-    errors={{
-      requested: error,
-    }}
+    errors={buildError(error)}
     validateOn="blur"
     validation={{
       date: validateDate(t, isValidDay),
