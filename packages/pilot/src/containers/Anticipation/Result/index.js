@@ -66,22 +66,35 @@ class AnticipationResult extends Component {
       <Summary>
         <DataDisplay
           title={t('pages.anticipation.date.label')}
+          titleSize="small"
           value={formatLongDate(date)}
         />
         <TotalDisplay
+          align="center"
           amount={requested}
+          amountSize="large"
           color="#37cc9a"
           title={t('pages.anticipation.requested.title')}
+          titleColor="#757575"
+          titleSize="small"
         />
         <TotalDisplay
+          align="center"
           amount={totalCost}
+          amountSize="large"
           color="#ff796f"
           title={t('pages.anticipation.cost.title')}
+          titleColor="#757575"
+          titleSize="small"
         />
         <TotalDisplay
+          align="center"
           amount={amount}
+          amountSize="large"
           color={chooseTotalDisplayColor(amount)}
           title={t('pages.anticipation.amount.title')}
+          titleColor="#757575"
+          titleSize="small"
         />
       </Summary>
     )

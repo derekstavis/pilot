@@ -6,10 +6,10 @@
 }
 
 .avaiable {
-  font-weight: bold;
   color: var(--color-light-greenish-100);
-  padding: 0 4px;
   font-size: 12px;
+  font-weight: bold;
+  padding: 0 4px;
 }
 
 .avaiableContainer {
@@ -26,9 +26,9 @@
 }
 
 .label {
-  padding: var(--spacing-tiny) 0;
-  display: flex;
   align-items: stretch;
+  display: flex;
+  padding: var(--spacing-tiny) 0;
 }
 
 .content .spacer {
@@ -42,13 +42,13 @@
 }
 
 .summary {
+  align-items: flex-end;
   display: inherit;
   flex-direction: inherit;
   flex: 1;
-  align-items: flex-end;
 }
 
 .titleInfo {
-  display: flex;
   align-items: center;
+  display: flex;
 }

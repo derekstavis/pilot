@@ -165,6 +165,7 @@ class AnticipationFormContainer extends Component {
                       <TotalDisplay
                         align="end"
                         amount={approximateRequested}
+                        amountSize="huge"
                         color={colors.requested}
                         title={
                           <div className={style.titleInfo}>
@@ -176,6 +177,8 @@ class AnticipationFormContainer extends Component {
                             <span>{t('pages.anticipation.requested.title')}</span>
                           </div>
                         }
+                        titleColor="#757575"
+                        titleSize="small"
                       />
                     </Col>
                   </Row>
@@ -190,9 +193,11 @@ class AnticipationFormContainer extends Component {
                       <TotalDisplay
                         align="end"
                         amount={(cost + transferCost)}
+                        amountSize="huge"
                         color={colors.cost}
                         subtitle={
                           <span>
+                            <Spacing size="tiny" />
                             <div>
                               {t(
                                 'pages.anticipation.cost.anticipation',
@@ -219,6 +224,8 @@ class AnticipationFormContainer extends Component {
                             <span>{t('pages.anticipation.cost.title')}</span>
                           </div>
                         }
+                        titleColor="#757575"
+                        titleSize="small"
                       />
                     </Col>
                   </Row>
@@ -233,6 +240,7 @@ class AnticipationFormContainer extends Component {
                       <TotalDisplay
                         align="end"
                         amount={amount}
+                        amountSize="huge"
                         color={colors.amount}
                         title={
                           <div className={style.titleInfo}>
@@ -244,6 +252,8 @@ class AnticipationFormContainer extends Component {
                             <span>{t('pages.anticipation.amount.title')}</span>
                           </div>
                         }
+                        titleColor="#757575"
+                        titleSize="small"
                       />
                     </Col>
                   </Row>

@@ -73,22 +73,35 @@ class AnticipationConfirmation extends Component {
       <Summary>
         <DataDisplay
           title={t('pages.anticipation.date.label')}
+          titleSize="small"
           value={formatLongDate(date)}
         />
         <TotalDisplay
+          align="center"
           amount={requested}
-          title={t('pages.anticipation.requested.title')}
+          amountSize="large"
           color="#37cc9a"
+          title={t('pages.anticipation.requested.title')}
+          titleColor="#757575"
+          titleSize="small"
         />
         <TotalDisplay
+          align="center"
           amount={totalCost}
-          title={t('pages.anticipation.cost.title')}
+          amountSize="large"
           color="#ff796f"
+          title={t('pages.anticipation.cost.title')}
+          titleColor="#757575"
+          titleSize="small"
         />
         <TotalDisplay
+          align="center"
           amount={amount}
-          title={t('pages.anticipation.amount.title')}
+          amountSize="large"
           color={chooseTotalDisplayColor(amount)}
+          title={t('pages.anticipation.amount.title')}
+          titleColor="#757575"
+          titleSize="small"
         />
       </Summary>
     )
@@ -186,11 +199,11 @@ class AnticipationConfirmation extends Component {
   renderRecipient () {
     const {
       bankAccount: {
-        agencia,
         agencia_dv: agenciaDv,
+        agencia,
         bank_code: bankCode,
-        conta,
         conta_dv: contaDv,
+        conta,
         document_number: documentNumber,
         legal_name: legalName,
         type,
@@ -285,11 +298,11 @@ AnticipationConfirmation.propTypes = {
   amount: PropTypes.number.isRequired,
   automaticTransfer: PropTypes.bool.isRequired,
   bankAccount: PropTypes.shape({
-    agencia: PropTypes.string,
     agencia_dv: PropTypes.string,
+    agencia: PropTypes.string,
     bank_code: PropTypes.string,
-    conta: PropTypes.string,
     conta_dv: PropTypes.string,
+    conta: PropTypes.string,
     document_number: PropTypes.string,
     document_type: PropTypes.string,
     legal_name: PropTypes.string,
