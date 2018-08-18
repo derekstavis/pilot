@@ -14,27 +14,29 @@ const Message = ({ image, title, message }) => (
     role="status"
   >
     <Grid>
-      <Row flex>
-        <Col align="center">
-          {image}
-        </Col>
-      </Row>
-      <Row flex>
-        <Col align="center">
-          {
-            (typeof title === 'string') &&
-              <h2>{title}</h2>
-          }
-          {
-            (typeof title !== 'string') &&
-              title
-          }
-        </Col>
-      </Row>
-      <Row flex>
+      <Row
+        flex
+      >
         <Col
           align="center"
         >
+          <div
+            className={style.image}
+          >
+            {image}
+          </div>
+          <span
+            className={style.title}
+          >
+            {
+              (typeof title === 'string') &&
+                <h2>{title}</h2>
+            }
+            {
+              (typeof title !== 'string') &&
+                title
+            }
+          </span>
           <span
             className={style.message}
           >

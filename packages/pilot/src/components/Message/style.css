@@ -1,4 +1,13 @@
 @import "former-kit-skin-pagarme/dist/styles/colors.css";
+@import "former-kit-skin-pagarme/dist/styles/spacing.css";
+
+.image {
+  margin-bottom: var(--spacing-medium);
+}
+
+.title * {
+  margin: 0px;
+}
 
 .message {
   color: var(--color-light-steel-100);
