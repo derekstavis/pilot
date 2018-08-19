@@ -25,7 +25,7 @@ const Message = ({ image, title, message }) => (
           >
             {image}
           </div>
-          <span
+          <div
             className={style.title}
           >
             {
@@ -36,8 +36,8 @@ const Message = ({ image, title, message }) => (
               (typeof title !== 'string') &&
                 title
             }
-          </span>
-          <span
+          </div>
+          <div
             className={style.message}
           >
             {
@@ -48,7 +48,7 @@ const Message = ({ image, title, message }) => (
               (typeof message !== 'string') &&
                 message
             }
-          </span>
+          </div>
         </Col>
       </Row>
     </Grid>
