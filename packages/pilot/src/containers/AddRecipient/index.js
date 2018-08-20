@@ -28,6 +28,7 @@ const createSteps = t => [
     id: BANK_ACCOUNT,
     order: 2,
     title: t('Conta Bancaria'),
+    // TODO: Mock async fetch of information before displaying step
     fetch: () => {},
   },
   {
@@ -131,6 +132,9 @@ export default class AddRecipients extends Component {
 
   /* eslint-disable */
   onCancel () {
+    // TODO: Display confirmation modal.
+    // TODO: How to navigate back to the recipients main page if the
+    // user confirms he wants to cancel?
     console.log('cancel')
   }
   /* eslint-enable */
@@ -140,19 +144,17 @@ export default class AddRecipients extends Component {
       currentStepOrder,
     } = this.state
 
-    const previusStepOrder = currentStepOrder - 1
-    const status = this.updateStatus(previusStepOrder)
+    const previousStepOrder = currentStepOrder - 1
+    const status = this.updateStatus(previousStepOrder)
 
     this.setState({
       status,
-      currentStepOrder: previusStepOrder,
+      currentStepOrder: previousStepOrder,
     })
-
-    console.log('back')
   }
 
   updateStatus (nextStepOrder) {
-    const updatedStatus = this.steps.map((step) => {
+    return this.steps.map((step) => {
       let status = 'current'
 
       if (step.order < nextStepOrder) {
@@ -165,12 +167,9 @@ export default class AddRecipients extends Component {
 
       return {
         id: step.id,
-        order: step.order,
         status,
       }
     })
-
-    return updatedStatus
   }
 
   renderStep () {
@@ -215,9 +214,6 @@ export default class AddRecipients extends Component {
   }
 
   render () {
-    console.log('status', this.state.status)
-    console.log('steps', this.steps)
-
     return (
       <Fragment>
         <Card>
