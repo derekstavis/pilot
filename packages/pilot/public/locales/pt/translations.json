@@ -499,6 +499,13 @@
       "withdrawal_title": "Saldo atual",
       "unknown_error": "Olá, para você poder visualizar as informações do seu extrato é necessário que as extensões do tipo AdBlock estejam desabilitadas."
     },
+    "capture": {
+      "capture_action": "Capturar",
+      "step_title_confirmation": "Confirmação",
+      "step_title_result": "Conclusão",
+      "title": "Capturar transação",
+      "value_to_capture": "Valor a ser capturado R$"
+    },
     "manual_review": {
       "approve_action": "Aprovar transação",
       "legal_warning_approves_approve": "aprovação.",

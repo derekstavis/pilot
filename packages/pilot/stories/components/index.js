@@ -2,6 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import BoletoRefundDetails from './BoletoRefundDetails'
+import CaptureDetails from './CaptureDetails'
 import CopyButton from './CopyButton'
 import CurrencyInput from './CurrencyInput'
 import CreditCardRefundDetails from './CreditCardRefundDetails'
@@ -52,6 +53,9 @@ storiesOf('Components', module)
   ))
   .add('DataDisplay', () => (
     <DataDisplay />
+  ))
+  .add('Capture details', () => (
+    <CaptureDetails />
   ))
   .add('Reprocess details', () => (
     <ReprocessDetails />
@@ -107,4 +111,3 @@ storiesOf('Components', module)
   .add('Loader', () => (
     <Loader />
   ))
-
