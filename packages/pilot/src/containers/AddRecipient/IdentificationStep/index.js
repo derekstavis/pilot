@@ -171,9 +171,9 @@ class IdentificationStep extends Component {
     this.onFormChange(formData)
   }
 
-  validateRepeatedDocuments (errors = {}) {
+  validateRepeatedDocuments (errors) {
     const { t } = this.props
-    const formErrors = errors
+    let formErrors = errors
 
     const {
       partner0,
@@ -201,6 +201,7 @@ class IdentificationStep extends Component {
         if (!uniqueDocuments[cpf]) {
           uniqueDocuments[cpf] = true
         } else {
+          if (!formErrors) formErrors = {}
           if (!formErrors[partner]) formErrors[partner] = {}
           formErrors[partner].cpf = repeatedErrorMessage
         }
