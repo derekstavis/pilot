@@ -105,21 +105,32 @@ $ yarn test
 seguindo a funcionalidades de [Workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
 
   - **`cockpit`**: Contém a estrutura de arquivos e pastas do Cockpit.
-	- **`config`**: Configurações gerais do Webpack e Jest.
-	- **`dist`**: Scripts prontos para produção.
-	- **`scripts`**: Todos os scripts usados para testes.
+  	- **`config`**: Configurações gerais do Webpack e Jest.
+  	- **`dist`**: Scripts prontos para produção.
+  	- **`scripts`**: Todos os scripts usados para testes.
     - **`src`**: Código-fonte do Cockpit.
 
-  - **`pilot`**: Contém a estrutura de arquivos e pastas da Pilot.
+  - **`pilot`**: Contém a estrutura de arquivos e pastas do Pilot.
     - **`src`** 
-	  - **`components`**: Todos os componentes da Pilot.
-	  - **`containers`**: Todos os containers da Pilot.
-	  - **`formatters`**: Funções utilizadas para formatação dos dados da aplicação.
-	  - **`models`**: Modelos baseados na estrutura de dados da aplicação e da API.
-	  - **`pages`**: Todos os [higher-order components](https://reactjs.org/docs/higher-order-components.html) que contém toda a lógica de busca de dados e manutenção de estado das páginas da Pilot.
-
-	- **`stories`**: Nossa biblioteca de componentes, containers
-	 e páginas usadas na aplicação. Utilizamos o [Storybook](https://github.com/storybooks/storybook).
+      - **`components`**: Componentes pequenos, geralmente compostos de JSX
+        e estilos. Não devem conter estado e devem estar aqui apenas caso
+        sejam reutilizados em várias áreas distintas do app.
+      - **`containers`**: Componentes grandes, compostos de outros componentes.
+        Podem conter estilos e estado (desde que o estado seja irrelevante
+        para o contexto da rota). Podem estar aqui para serem reutilizados
+        ou por serem usados em uma rota inteira.
+      - **`pages`**: Componentes grandes que contém a lógica de busca de
+        dados e manutenção de estado das rotas do app. Não devem conter
+        estilos e são os únicos componentes que podem ser conectados ao
+        Redux.
+      - **`formatters`**: Funções utilizadas para formatação dos dados da
+        aplicação.
+      - **`models`**: Dados estáticos que fazem parte da aplicação e mapeiam
+        para dados usados ou retornados pela API.
+    - **`stories`**: Nossa biblioteca de componentes, containers e páginas
+      da aplicação. Utilizamos o [Storybook](https://github.com/storybooks/storybook)
+      para auxiliar no desenvolvimento usando mocks e para efetuar
+      validações visuais.
 
 ## Contribuindo
 
